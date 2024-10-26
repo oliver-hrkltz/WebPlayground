@@ -1,0 +1,26 @@
+{
+    "name": "@hrkltz/lit-playground-starter",
+    "private": true,
+    "version": "0.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "setup": "rm package-lock.json 2>> /dev/null; rm -r node_modules/ 2>> /dev/null; npm install",
+        "build:components": "tsc",
+        "build:production": "vite build",
+        "dev": "vite"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hrkltz/litPlayground.git"
+    },
+    "author": "hrkltz.io",
+    "license": "MIT",
+    "dependencies": {
+        "lit": "2.6.1"
+    },
+    "devDependencies": {
+        "typescript": "4.9.5",
+        "vite": "4.0.4"
+    }
+}

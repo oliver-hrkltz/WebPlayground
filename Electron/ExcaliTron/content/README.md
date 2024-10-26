@@ -1,0 +1,1 @@
+This folder should contain the build output of excalidraw!

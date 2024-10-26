@@ -1,0 +1,12 @@
+{
+    "editor.renderWhitespace": "all",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    // Don't override tabSize & insertSpaces by the content of the file.
+    "editor.detectIndentation": false,
+    "files.insertFinalNewline": true,
+    "files.encoding": "utf8",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true
+}
