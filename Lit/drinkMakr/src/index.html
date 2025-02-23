@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="module" src="./drinkMakrComponent.ts"></script>
+    <script type="module" src="./drinkMakr2Component.ts"></script>
+    <style>
+        html {
+            height: 100dvh;
+            width: 100dvw;
+        }
+
+        body {
+            display: grid;
+            grid-template-areas:
+                '. .';
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            height: 100dvh;
+            margin: unset;
+            overflow: hidden;
+            width: 100dvw;
+        }
+    </style>
+</head>
+
+<body>
+    <drink-makr></drink-makr>
+    <drink-makr-2></drink-makr-2>
+</body>
+
+</html>
