@@ -70,9 +70,7 @@ export class FlowCanvas extends LitElement {
         xmlns="http://www.w3.org/2000/svg"
         @click="${this._onSvgClick}"
         @mousemove="${this._onMouseMove}"
-        @mouseup="${this._onMouseUp}"
-        @touchmove="${this._onMouseMove}"
-        @touchend="${this._onMouseUp}">
+        @mouseup="${this._onMouseUp}">
         <!-- Linien (Edges) -->
         ${this.lines.map(line => {
           const fromNode = this.nodes.find(n => n.id === line.from);
@@ -94,7 +92,6 @@ export class FlowCanvas extends LitElement {
             cy="${node.y}"
             r="20"
             @mousedown="${(e) => this._onMouseDown(e, node.id)}"
-            @touchstart="${(e) => this._onMouseDown(e, node.id)}"
             @dblclick="${(e) => this._onCircleDblClick(e, node.id)}"></circle>
         `)}
       </svg>
@@ -102,8 +99,8 @@ export class FlowCanvas extends LitElement {
   }
 
   /**
-   * Wird aufgerufen, wenn auf das SVG geklickt wird.
-   * Falls der Klick auf eine "leere" Stelle erfolgt (SVG selbst), wird ein neuer Kreis erzeugt.
+   * Called when the SVG is clicked.
+   * If the click occurs on an "empty" spot (the SVG itself), a new circle is created.
    */
   _onSvgClick(e) {
     console.log('svgclick');
@@ -126,9 +123,9 @@ export class FlowCanvas extends LitElement {
   }
 
   /**
-   * Wird aufgerufen, wenn der Nutzer auf einen Kreis klickt (Maus oder Touch).
-   * Hier starten wir das Dragging und merken uns die Differenz zwischen Maus und Kreis-Position.
-   * Außerdem: Wenn bereits ein anderer Kreis ausgewählt war, verbinden wir ihn mit dem neuen Kreis.
+   * Called when the user clicks on a circle.
+   * Starts the dragging process and stores the difference between the mouse and circle position.
+   * Additionally: If another circle was already selected, we connect it with the new circle.
    */
   _onMouseDown(e, nodeId) {
     console.log('mousedown', nodeId);
@@ -167,7 +164,7 @@ export class FlowCanvas extends LitElement {
   }
 
   /**
-   * Wird beim Bewegen der Maus (oder Finger) aufgerufen, wenn wir gerade einen Kreis verschieben.
+   * Called when the mouse is moved while dragging a circle.
    */
   _onMouseMove(e) {
     console.log('mousemove');
@@ -199,8 +196,8 @@ export class FlowCanvas extends LitElement {
   }
 
   /**
-   * Wird aufgerufen, wenn Maustaste oder Finger losgelassen wird.
-   * Beendet den Drag-Vorgang.
+   * Called when the mouse button or finger is released.
+   * Ends the drag operation.
    */
   _onMouseUp() {
     console.log('mouseup');
@@ -208,7 +205,7 @@ export class FlowCanvas extends LitElement {
   }
 
   /**
-   * Ein Doppelklick auf einen Kreis löscht ihn und alle zugehörigen Verbindungen.
+   * A double-click on a circle deletes it and all associated connections.
    */
   _onCircleDblClick(e, nodeId) {
     console.log('dblclick', nodeId);
